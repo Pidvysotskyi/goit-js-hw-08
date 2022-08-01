@@ -30,7 +30,7 @@ function onFormInput(evt) {
 
 formRef.addEventListener('submit', onFormSubmit);
 
-function onFormSubmit(evt) {
+function onFormSubmit() {
   console.log(data);
 
   localStorage.removeItem('feedback-form-state');
