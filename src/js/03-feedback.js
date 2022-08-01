@@ -30,14 +30,9 @@ function onFormInput(evt) {
 
 formRef.addEventListener('submit', onFormSubmit);
 
-function onFormSubmit(evt) {
-  evt.preventDefault();
-  console.log(
-    `Email: ${emailInputRef.value}
-Message: ${messageInputRef.value}`
-  );
+function onFormSubmit() {
+  console.log(data);
   localStorage.removeItem('feedback-form-state');
   emailInputRef.value = '';
   messageInputRef.value = '';
 }
-
