@@ -11,14 +11,13 @@ if (localStorage.getItem('feedback-form-state')) {
   messageInputRef.value = dataFormStorage.message;
 }
 
-const data = {
-  email: emailInputRef.value,
-  message: messageInputRef.value,
-};
-
 formRef.addEventListener('input', throttle(onFormInput, 500));
 
 function onFormInput(evt) {
+  const data = {
+    email: emailInputRef.value,
+    message: messageInputRef.value,
+  };
   if (evt.target.name === 'email') {
     data.email = evt.target.value;
   }
@@ -30,8 +29,9 @@ function onFormInput(evt) {
 
 formRef.addEventListener('submit', onFormSubmit);
 
-function onFormSubmit() {
-  console.log(data);
+function onFormSubmit(evt) {
+  evt.preventDefault();
+  console.log(dataFormStorage);
 
   localStorage.removeItem('feedback-form-state');
   emailInputRef.value = '';
