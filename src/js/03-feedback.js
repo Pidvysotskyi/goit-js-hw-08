@@ -24,6 +24,7 @@ function onFormInput(evt) {
   if (evt.target.name === 'message') {
     data.message = evt.target.value;
   }
+
   localStorage.setItem('feedback-form-state', JSON.stringify(data));
 }
 
@@ -31,7 +32,8 @@ formRef.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(evt) {
   evt.preventDefault();
-  console.log(dataFormStorage);
+
+  console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
 
   localStorage.removeItem('feedback-form-state');
   emailInputRef.value = '';
